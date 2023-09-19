@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Progress_todo extends Model
 {
     use HasFactory;
+
+public function todos()
+    {
+    return $this->belongsTo(Todos::class);
+    }
+    
+public function sub_todos()
+    {
+    return $this->belongsTo(Sub_todos::class);
+    }
+    
 }
