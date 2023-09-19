@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Todos
+use App\Models\Progress;
 
 class RecordController extends Controller
 {
-    public function index(Todo $todo)
+    public function index(Progress $progress)
     {
-        return $todo->get();
+        return $progress->get();
     }
 }
