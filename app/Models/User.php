@@ -12,11 +12,22 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    public function todos()
+    {  
+        return $this->hasMany(Todo::class);
+    }
+    
+    public function sub_todos()
+    {  
+        return $this->hasMany(Sub_todo::class);
+    }
+    
     /**
      * The attributes that are mass assignable.
      *
      * @var array<int, string>
      */
+    protected $table = 'users';
     protected $fillable = [
         'name',
         'email',
