@@ -8,17 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class Sub_todo extends Model
 {
     use HasFactory;
-    
     protected $guarded = ['title', 'detail', 'limit', 'check'];
-    
-    public function progress()
-    {
-        return $this->belongsToMany(Progress::class);
-    }
     
     public function todo()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Todo::class);
+    }
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 }
