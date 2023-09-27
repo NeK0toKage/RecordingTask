@@ -24,6 +24,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/todolist', [TodoController::class, 'todolist'])->name('todolist');
+Route::get("/todos/{todo}", [TodoController::class, 'detailsub']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
