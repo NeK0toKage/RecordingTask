@@ -9,7 +9,7 @@ class Todo extends Model
 {
     use HasFactory;
     protected $table = 'todos';
-    protected $guarded = ['title' , 'detail' , 'limit' ,'check'];
+    protected $fillable = ['title' , 'detail' , 'limit' ,'check'];
     
     public function sub_todos()
     {  

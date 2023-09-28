@@ -16,14 +16,21 @@ use App\Http\Controllers\TodoController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome'); //既存
 });
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard'); //よくわからない
 
-Route::get('/todolist', [TodoController::class, 'todolist'])->name('todolist');
+
+Route::get('/todolist', [TodoController::class, 'todolist'])->name('todolist'); //ToDoリスト
+Route::get('/todos/createTask',[TodoController::class, 'create']); //追加する
+//Route::get('/editor',[TodoController::class, 'editor']); //編集する
+Route::get("todos/{todo}",[TodoController::class, 'xmission']); //詳細画面
+Route::get('/todos/{todo}/edit', [TodoController::class, 'edit']); //
+Route::put('/todos/{todo}', [TodoController::class, 'update']); //
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
